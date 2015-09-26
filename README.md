@@ -16,4 +16,19 @@ to be done
 
 Use tsc --sourcemap greeter.ts
 
+### Phase 3: TypeScript Editor
+
+#### (a) New File Type for TypeScript
+
+to be done
+
+#### (b) Sytax Coloring for TypeScript
+
+to be done
+
+#### (c) Code Completion for TypeScript
+
+to be done
+
+
 
