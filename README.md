@@ -33,7 +33,7 @@ automatically generate JS for the currently changed TS file.
 
 #### (a) New File Type for TypeScript
 
-to be done
+<img src="images/typescript-filetype.png"/>
 
 Phase 2 above assumes there is support for TS file type,
 i.e., TS files should be recognized and when there is a change,
