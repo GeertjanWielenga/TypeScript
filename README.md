@@ -1,6 +1,6 @@
 # TypeScript
 
-## Specification for NetBeans support for TypeScript
+## Specification for NetBeans Support for TypeScript
 
 A basic outline of features that are needed in order in which they are needed.
 
