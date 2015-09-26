@@ -17,7 +17,7 @@
                         <dependency>
                             <id>org.netbeans.modules:org-netbeans-modules-javascript2-editor</id>
                             <type>impl</type>
-                            <explicitValue>org.netbeans.modules.javascript2.editor/1 = 201503101352</explicitValue>
+                            <explicitValue>org.netbeans.modules.javascript2.editor/1 = 201508041349</explicitValue>
                         </dependency>
                     </moduleDependencies>
                 </configuration>
@@ -83,6 +83,16 @@
         <dependency>
             <groupId>org.netbeans.api</groupId>
             <artifactId>org-openide-util-lookup</artifactId>
+            <version>RELEASE802</version>
+        </dependency>
+        <dependency>
+            <groupId>org.netbeans.api</groupId>
+            <artifactId>org-netbeans-modules-options-api</artifactId>
+            <version>RELEASE802</version>
+        </dependency>
+        <dependency>
+            <groupId>org.netbeans.api</groupId>
+            <artifactId>org-openide-awt</artifactId>
             <version>RELEASE802</version>
         </dependency>
     </dependencies>

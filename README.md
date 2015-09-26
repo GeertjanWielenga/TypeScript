@@ -16,7 +16,7 @@ and the matching folders where the JS should be generated.
 
 #### (b) Extension to Options window
 
-to be done
+<img src="images/typescript-options.png"/>
 
 Similar to support for SASS and LESS, here the user will
 define the settings related to the TSC tool that will be
