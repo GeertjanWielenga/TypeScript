@@ -35,7 +35,7 @@ automatically generate JS for the currently changed TS file.
 
 <img src="images/typescript-filetype.png"/>
 
-Phase 2 above assumes there is support for TS file type,
+Phase 2 above assumes there is support for the TS file extension,
 i.e., TS files should be recognized and when there is a change,
 the JS should be generated.
 
