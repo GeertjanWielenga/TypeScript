@@ -31,7 +31,21 @@ Use tsc --sourcemap greeter.ts
 Using the settings returned from the GUI defined in Phase 1,
 automatically generate JS for the currently changed TS file.
 
-### Phase 3: TypeScript Editor
+### Phase 3: TypeScript Code Structures
+
+#### (a) Code Templates for TypeScript
+
+to be done
+
+#### (b) File Templates for TypeScript
+
+to be done
+
+#### (c) Project Templates for TypeScript
+
+to be done
+
+### Phase 4: TypeScript Editor
 
 #### (a) New File Type for TypeScript
 
@@ -53,11 +67,7 @@ to be done
 
 to be done
 
-#### (e) Code Templates for TypeScript
-
-to be done
-
-### Phase 4: TypeScript Debugger
+### Phase 5: TypeScript Debugger
 
 to be done
 
