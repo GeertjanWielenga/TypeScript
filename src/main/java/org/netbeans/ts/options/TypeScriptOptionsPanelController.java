@@ -17,12 +17,12 @@ import org.openide.util.Lookup;
 @org.openide.util.NbBundle.Messages({"AdvancedOption_DisplayName_TypeScript=TypeScript", "AdvancedOption_Keywords_TypeScript=TypeScript"})
 public final class TypeScriptOptionsPanelController extends OptionsPanelController {
 
-    private TypeScriptPanel panel;
+    private TypeScriptOptionsPanel panel;
     private final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
     private boolean changed;
 
     public void update() {
-        getPanel().load();
+//        getPanel().load();
         changed = false;
     }
 
@@ -30,7 +30,7 @@ public final class TypeScriptOptionsPanelController extends OptionsPanelControll
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                getPanel().store();
+//                getPanel().store();
                 changed = false;
             }
         });
@@ -41,7 +41,8 @@ public final class TypeScriptOptionsPanelController extends OptionsPanelControll
     }
 
     public boolean isValid() {
-        return getPanel().valid();
+        return true;
+//        return getPanel().valid();
     }
 
     public boolean isChanged() {
@@ -64,9 +65,9 @@ public final class TypeScriptOptionsPanelController extends OptionsPanelControll
         pcs.removePropertyChangeListener(l);
     }
 
-    private TypeScriptPanel getPanel() {
+    private TypeScriptOptionsPanel getPanel() {
         if (panel == null) {
-            panel = new TypeScriptPanel(this);
+            panel = new TypeScriptOptionsPanel();
         }
         return panel;
     }
