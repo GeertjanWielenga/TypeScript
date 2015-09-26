@@ -1,3 +1,3 @@
 # TypeScript
 
-<img src="images/typescript-proprerties.png"/>
+<img src="images/typescript-properties.png"/>
