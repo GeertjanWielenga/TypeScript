@@ -10,8 +10,17 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>nbm-maven-plugin</artifactId>
-                <version>3.13</version>
+                <version>3.14</version>
                 <extensions>true</extensions>
+                <configuration>
+                    <moduleDependencies>
+                        <dependency>
+                            <id>org.netbeans.modules:org-netbeans-modules-javascript2-editor</id>
+                            <type>impl</type>
+                            <explicitValue>org.netbeans.modules.javascript2.editor/1 = 201503101352</explicitValue>
+                        </dependency>
+                    </moduleDependencies>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -61,6 +70,11 @@
             <type>jar</type>
         </dependency>
         <dependency>
+            <groupId>org.netbeans.api</groupId>
+            <artifactId>org-netbeans-modules-projectapi</artifactId>
+            <version>RELEASE802</version>
+        </dependency>
+        <dependency>
             <groupId>org.netbeans.modules</groupId>
             <artifactId>org-netbeans-modules-javascript2-editor</artifactId>
             <version>RELEASE802</version>
@@ -68,7 +82,7 @@
         </dependency>
         <dependency>
             <groupId>org.netbeans.api</groupId>
-            <artifactId>org-netbeans-modules-projectapi</artifactId>
+            <artifactId>org-openide-util-lookup</artifactId>
             <version>RELEASE802</version>
         </dependency>
     </dependencies>
