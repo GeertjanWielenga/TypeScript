@@ -43,7 +43,7 @@ to be done
 
 #### (c) Project Templates for TypeScript
 
-to be done
+<img src="images/typescript-sample-greeter.png"/>
 
 ### Phase 4: TypeScript Editor
 
