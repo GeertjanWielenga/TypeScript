@@ -4,6 +4,8 @@
 
 A basic outline of features that are needed in order in which they are needed.
 
+All screenshots shown below are taken from the current state of this repo.
+
 ### Phase 1: Set up the GUI infrastructure
 
 #### (a) Extension to Project Properties dialog
