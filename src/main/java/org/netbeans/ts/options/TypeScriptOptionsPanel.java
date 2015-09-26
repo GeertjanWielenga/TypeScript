@@ -257,7 +257,7 @@ public final class TypeScriptOptionsPanel extends JPanel {
 
     private void installSassLabelMousePressed(MouseEvent evt) {//GEN-FIRST:event_installSassLabelMousePressed
         try {
-            URL url = new URL("http://sass-lang.com/"); // NOI18N
+            URL url = new URL("https://www.npmjs.com/package/typescript"); // NOI18N
             HtmlBrowser.URLDisplayer.getDefault().showURL(url);
         } catch (MalformedURLException ex) {
             LOGGER.log(Level.SEVERE, null, ex);
