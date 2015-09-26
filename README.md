@@ -49,6 +49,14 @@ to be done
 
 to be done
 
+#### (d) Refactoring for TypeScript
+
+to be done
+
+#### (e) Code Templates for TypeScript
+
+to be done
+
 ### Phase 4: TypeScript Debugger
 
 to be done
