@@ -135,6 +135,11 @@
             <artifactId>org-netbeans-modules-editor-lib2</artifactId>
             <version>RELEASE802</version>
         </dependency>
+        <dependency>
+            <groupId>org.netbeans.api</groupId>
+            <artifactId>org-netbeans-modules-extexecution</artifactId>
+            <version>RELEASE802</version>
+        </dependency>
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
