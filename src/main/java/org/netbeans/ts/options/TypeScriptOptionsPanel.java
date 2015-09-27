@@ -11,6 +11,7 @@ import java.awt.event.MouseEvent;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.GroupLayout;
@@ -28,6 +29,7 @@ import javax.swing.event.DocumentListener;
 //import org.netbeans.modules.css.prep.util.FileUtils;
 import org.openide.awt.HtmlBrowser;
 import org.openide.awt.Mnemonics;
+import org.openide.awt.StatusDisplayer;
 import org.openide.filesystems.FileChooserBuilder;
 import org.openide.util.ChangeSupport;
 import org.openide.util.NbBundle;
@@ -204,12 +206,12 @@ public final class TypeScriptOptionsPanel extends JPanel {
 
     @NbBundle.Messages("TypeScriptOptionsPanel.executable.notFound=No TypeScript executable found.")
     private void tscPathSearchButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_tscPathSearchButtonActionPerformed
-//        List<String> sassPaths = FileUtils.findFileOnUsersPath(TypeScriptExecutable.EXECUTABLE_LONG_NAME, TypeScriptExecutable.EXECUTABLE_NAME);
-//        if (sassPaths.isEmpty()) {
-//            StatusDisplayer.getDefault().setStatusText(Bundle.TypeScriptOptionsPanel_executable_notFound());
-//        } else {
-//            sassPathTextField.setText(sassPaths.get(0));
-//        }
+        List<String> tscPaths = FileUtils.findFileOnUsersPath("tsc.cmd", "tsc");
+        if (tscPaths.isEmpty()) {
+            StatusDisplayer.getDefault().setStatusText(Bundle.TypeScriptOptionsPanel_executable_notFound());
+        } else {
+            tscPathTextField.setText(tscPaths.get(0));
+        }
     }//GEN-LAST:event_tscPathSearchButtonActionPerformed
 
     private void installTscLabelMouseEntered(MouseEvent evt) {//GEN-FIRST:event_installTscLabelMouseEntered
