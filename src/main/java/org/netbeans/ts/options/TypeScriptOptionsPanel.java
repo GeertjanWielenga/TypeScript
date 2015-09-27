@@ -1,44 +1,3 @@
-/*
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
- *
- * Copyright 2013 Oracle and/or its affiliates. All rights reserved.
- *
- * Oracle and Java are registered trademarks of Oracle and/or its affiliates.
- * Other names may be trademarks of their respective owners.
- *
- * The contents of this file are subject to the terms of either the GNU
- * General Public License Version 2 only ("GPL") or the Common
- * Development and Distribution License("CDDL") (collectively, the
- * "License"). You may not use this file except in compliance with the
- * License. You can obtain a copy of the License at
- * http://www.netbeans.org/cddl-gplv2.html
- * or nbbuild/licenses/CDDL-GPL-2-CP. See the License for the
- * specific language governing permissions and limitations under the
- * License.  When distributing the software, include this License Header
- * Notice in each file and include the License file at
- * nbbuild/licenses/CDDL-GPL-2-CP.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the GPL Version 2 section of the License file that
- * accompanied this code. If applicable, add the following below the
- * License Header, with the fields enclosed by brackets [] replaced by
- * your own identifying information:
- * "Portions Copyrighted [year] [name of copyright owner]"
- *
- * If you wish your version of this file to be governed by only the CDDL
- * or only the GPL Version 2, indicate your decision by adding
- * "[Contributor] elects to include this software in this distribution
- * under the [CDDL or GPL Version 2] license." If you do not indicate a
- * single choice of license, a recipient has the option to distribute
- * your version of this file under either the CDDL, the GPL Version 2 or
- * to extend the choice of license to its licensees as provided above.
- * However, if you add GPL Version 2 code and therefore, elected the GPL
- * Version 2 license, then the option applies only if the new code is
- * made subject to such option by the copyright holder.
- *
- * Contributor(s):
- *
- * Portions Copyrighted 2013 Sun Microsystems, Inc.
- */
 package org.netbeans.ts.options;
 
 import java.awt.Component;
@@ -49,8 +8,10 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.GroupLayout;
@@ -68,6 +29,8 @@ import javax.swing.event.DocumentListener;
 //import org.netbeans.modules.css.prep.util.FileUtils;
 import org.openide.awt.HtmlBrowser;
 import org.openide.awt.Mnemonics;
+import org.openide.awt.StatusDisplayer;
+import org.openide.filesystems.FileChooserBuilder;
 import org.openide.util.ChangeSupport;
 import org.openide.util.NbBundle;
 
@@ -91,37 +54,37 @@ public final class TypeScriptOptionsPanel extends JPanel {
         "TypeScriptOptionsPanel.path.hint=Full path of TypeScript executable (typically {0} or {1}).",
     })
     private void init() {
-//        sassPathHintLabel.setText(Bundle.TypeScriptOptionsPanel_path_hint(TypeScriptExecutable.EXECUTABLE_LONG_NAME, TypeScriptExecutable.EXECUTABLE_NAME));
+        tscPathHintLabel.setText(Bundle.TypeScriptOptionsPanel_path_hint("tsc.cmd", "tsc"));
 
         // listeners
-        sassPathTextField.getDocument().addDocumentListener(new DefaultDocumentListener());
+        tscPathTextField.getDocument().addDocumentListener(new DefaultDocumentListener());
         DefaultItemListener defaultItemListener = new DefaultItemListener();
-        sassOutputOnErrorCheckBox.addItemListener(defaultItemListener);
-        sassDebugCheckBox.addItemListener(defaultItemListener);
+        tscOutputOnErrorCheckBox.addItemListener(defaultItemListener);
+        tscDebugCheckBox.addItemListener(defaultItemListener);
     }
 
     public String getTypeScriptPath() {
-        return sassPathTextField.getText();
+        return tscPathTextField.getText();
     }
 
     public void setTypeScriptPath(String path) {
-        sassPathTextField.setText(path);
+        tscPathTextField.setText(path);
     }
 
     public boolean getTypeScriptOutputOnError() {
-        return sassOutputOnErrorCheckBox.isSelected();
+        return tscOutputOnErrorCheckBox.isSelected();
     }
 
     public void setTypeScriptOutputOnError(boolean outputOnError) {
-        sassOutputOnErrorCheckBox.setSelected(outputOnError);
+        tscOutputOnErrorCheckBox.setSelected(outputOnError);
     }
 
     public boolean getTypeScriptDebug() {
-        return sassDebugCheckBox.isSelected();
+        return tscDebugCheckBox.isSelected();
     }
 
     public void setTypeScriptDebug(boolean debug) {
-        sassDebugCheckBox.setSelected(debug);
+        tscDebugCheckBox.setSelected(debug);
     }
 
     public void addChangeListener(ChangeListener listener) {
@@ -143,136 +106,136 @@ public final class TypeScriptOptionsPanel extends JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        sassPathLabel = new JLabel();
-        sassPathTextField = new JTextField();
-        sassPathBrowseButton = new JButton();
-        sassPathSearchButton = new JButton();
-        sassPathHintLabel = new JLabel();
-        installSassLabel = new JLabel();
-        sassOutputOnErrorCheckBox = new JCheckBox();
-        sassDebugCheckBox = new JCheckBox();
+        tscPathLabel = new JLabel();
+        tscPathTextField = new JTextField();
+        tscPathBrowseButton = new JButton();
+        tscPathSearchButton = new JButton();
+        tscPathHintLabel = new JLabel();
+        installTscLabel = new JLabel();
+        tscOutputOnErrorCheckBox = new JCheckBox();
+        tscDebugCheckBox = new JCheckBox();
 
-        sassPathLabel.setLabelFor(sassPathTextField);
-        Mnemonics.setLocalizedText(sassPathLabel, NbBundle.getMessage(TypeScriptOptionsPanel.class, "TypeScriptOptionsPanel.TypeScriptPathLabel.text")); // NOI18N
+        tscPathLabel.setLabelFor(tscPathTextField);
+        Mnemonics.setLocalizedText(tscPathLabel, NbBundle.getMessage(TypeScriptOptionsPanel.class, "TypeScriptOptionsPanel.TypeScriptPathLabel.text")); // NOI18N
 
-        Mnemonics.setLocalizedText(sassPathBrowseButton, NbBundle.getMessage(TypeScriptOptionsPanel.class, "TypeScriptOptionsPanel.sassPathBrowseButton.text")); // NOI18N
-        sassPathBrowseButton.addActionListener(new ActionListener() {
+        Mnemonics.setLocalizedText(tscPathBrowseButton, NbBundle.getMessage(TypeScriptOptionsPanel.class, "TypeScriptOptionsPanel.tscPathBrowseButton.text")); // NOI18N
+        tscPathBrowseButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                sassPathBrowseButtonActionPerformed(evt);
+                tscPathBrowseButtonActionPerformed(evt);
             }
         });
 
-        Mnemonics.setLocalizedText(sassPathSearchButton, NbBundle.getMessage(TypeScriptOptionsPanel.class, "TypeScriptOptionsPanel.sassPathSearchButton.text")); // NOI18N
-        sassPathSearchButton.addActionListener(new ActionListener() {
+        Mnemonics.setLocalizedText(tscPathSearchButton, NbBundle.getMessage(TypeScriptOptionsPanel.class, "TypeScriptOptionsPanel.tscPathSearchButton.text")); // NOI18N
+        tscPathSearchButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                sassPathSearchButtonActionPerformed(evt);
+                tscPathSearchButtonActionPerformed(evt);
             }
         });
 
-        Mnemonics.setLocalizedText(sassPathHintLabel, "HINT"); // NOI18N
+        Mnemonics.setLocalizedText(tscPathHintLabel, "HINT"); // NOI18N
 
-        Mnemonics.setLocalizedText(installSassLabel, NbBundle.getMessage(TypeScriptOptionsPanel.class, "TypeScriptOptionsPanel.installTypeScriptLabel.text")); // NOI18N
-        installSassLabel.addMouseListener(new MouseAdapter() {
+        Mnemonics.setLocalizedText(installTscLabel, NbBundle.getMessage(TypeScriptOptionsPanel.class, "TypeScriptOptionsPanel.installTypeScriptLabel.text")); // NOI18N
+        installTscLabel.addMouseListener(new MouseAdapter() {
             public void mouseEntered(MouseEvent evt) {
-                installSassLabelMouseEntered(evt);
+                installTscLabelMouseEntered(evt);
             }
             public void mousePressed(MouseEvent evt) {
-                installSassLabelMousePressed(evt);
+                installTscLabelMousePressed(evt);
             }
         });
 
-        Mnemonics.setLocalizedText(sassOutputOnErrorCheckBox, NbBundle.getMessage(TypeScriptOptionsPanel.class, "TypeScriptOptionsPanel.sassOutputOnErrorCheckBox.text")); // NOI18N
+        Mnemonics.setLocalizedText(tscOutputOnErrorCheckBox, NbBundle.getMessage(TypeScriptOptionsPanel.class, "TypeScriptOptionsPanel.tscOutputOnErrorCheckBox.text")); // NOI18N
 
-        Mnemonics.setLocalizedText(sassDebugCheckBox, NbBundle.getMessage(TypeScriptOptionsPanel.class, "TypeScriptOptionsPanel.sassDebugCheckBox.text")); // NOI18N
+        Mnemonics.setLocalizedText(tscDebugCheckBox, NbBundle.getMessage(TypeScriptOptionsPanel.class, "TypeScriptOptionsPanel.tscDebugCheckBox.text")); // NOI18N
 
         GroupLayout layout = new GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(sassPathLabel)
+                .addComponent(tscPathLabel)
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(sassPathHintLabel)
+                        .addComponent(tscPathHintLabel)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(installSassLabel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                        .addComponent(installTscLabel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(sassPathTextField)
+                        .addComponent(tscPathTextField)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(sassPathBrowseButton)
+                        .addComponent(tscPathBrowseButton)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(sassPathSearchButton))))
+                        .addComponent(tscPathSearchButton))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                    .addComponent(sassOutputOnErrorCheckBox)
-                    .addComponent(sassDebugCheckBox))
+                    .addComponent(tscOutputOnErrorCheckBox)
+                    .addComponent(tscDebugCheckBox))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        layout.linkSize(SwingConstants.HORIZONTAL, new Component[] {sassPathBrowseButton, sassPathSearchButton});
+        layout.linkSize(SwingConstants.HORIZONTAL, new Component[] {tscPathBrowseButton, tscPathSearchButton});
 
         layout.setVerticalGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(sassPathLabel)
-                    .addComponent(sassPathBrowseButton)
-                    .addComponent(sassPathSearchButton)
-                    .addComponent(sassPathTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tscPathLabel)
+                    .addComponent(tscPathBrowseButton)
+                    .addComponent(tscPathSearchButton)
+                    .addComponent(tscPathTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(sassPathHintLabel)
-                    .addComponent(installSassLabel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tscPathHintLabel)
+                    .addComponent(installTscLabel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(sassOutputOnErrorCheckBox)
+                .addComponent(tscOutputOnErrorCheckBox)
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(sassDebugCheckBox)
+                .addComponent(tscDebugCheckBox)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     @NbBundle.Messages("TypeScriptOptionsPanel.browse.title=Select TypeScript")
-    private void sassPathBrowseButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_sassPathBrowseButtonActionPerformed
-//        File file = new FileChooserBuilder(TypeScriptOptionsPanel.class)
-//                .setFilesOnly(true)
-//                .setTitle(Bundle.TypeScriptOptionsPanel_browse_title())
-//                .showOpenDialog();
-//        if (file != null) {
-//            sassPathTextField.setText(file.getAbsolutePath());
-//        }
-    }//GEN-LAST:event_sassPathBrowseButtonActionPerformed
+    private void tscPathBrowseButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_tscPathBrowseButtonActionPerformed
+        File file = new FileChooserBuilder(TypeScriptOptionsPanel.class)
+                .setFilesOnly(true)
+                .setTitle(Bundle.TypeScriptOptionsPanel_browse_title())
+                .showOpenDialog();
+        if (file != null) {
+            tscPathTextField.setText(file.getAbsolutePath());
+        }
+    }//GEN-LAST:event_tscPathBrowseButtonActionPerformed
 
     @NbBundle.Messages("TypeScriptOptionsPanel.executable.notFound=No TypeScript executable found.")
-    private void sassPathSearchButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_sassPathSearchButtonActionPerformed
-//        List<String> sassPaths = FileUtils.findFileOnUsersPath(TypeScriptExecutable.EXECUTABLE_LONG_NAME, TypeScriptExecutable.EXECUTABLE_NAME);
-//        if (sassPaths.isEmpty()) {
-//            StatusDisplayer.getDefault().setStatusText(Bundle.TypeScriptOptionsPanel_executable_notFound());
-//        } else {
-//            sassPathTextField.setText(sassPaths.get(0));
-//        }
-    }//GEN-LAST:event_sassPathSearchButtonActionPerformed
+    private void tscPathSearchButtonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_tscPathSearchButtonActionPerformed
+        List<String> tscPaths = FileUtils.findFileOnUsersPath("tsc.cmd", "tsc");
+        if (tscPaths.isEmpty()) {
+            StatusDisplayer.getDefault().setStatusText(Bundle.TypeScriptOptionsPanel_executable_notFound());
+        } else {
+            tscPathTextField.setText(tscPaths.get(0));
+        }
+    }//GEN-LAST:event_tscPathSearchButtonActionPerformed
 
-    private void installSassLabelMouseEntered(MouseEvent evt) {//GEN-FIRST:event_installSassLabelMouseEntered
+    private void installTscLabelMouseEntered(MouseEvent evt) {//GEN-FIRST:event_installTscLabelMouseEntered
         evt.getComponent().setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-    }//GEN-LAST:event_installSassLabelMouseEntered
+    }//GEN-LAST:event_installTscLabelMouseEntered
 
-    private void installSassLabelMousePressed(MouseEvent evt) {//GEN-FIRST:event_installSassLabelMousePressed
+    private void installTscLabelMousePressed(MouseEvent evt) {//GEN-FIRST:event_installTscLabelMousePressed
         try {
             URL url = new URL("https://www.npmjs.com/package/typescript"); // NOI18N
             HtmlBrowser.URLDisplayer.getDefault().showURL(url);
         } catch (MalformedURLException ex) {
             LOGGER.log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_installSassLabelMousePressed
+    }//GEN-LAST:event_installTscLabelMousePressed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private JLabel installSassLabel;
-    private JCheckBox sassDebugCheckBox;
-    private JCheckBox sassOutputOnErrorCheckBox;
-    private JButton sassPathBrowseButton;
-    private JLabel sassPathHintLabel;
-    private JLabel sassPathLabel;
-    private JButton sassPathSearchButton;
-    private JTextField sassPathTextField;
+    private JLabel installTscLabel;
+    private JCheckBox tscDebugCheckBox;
+    private JCheckBox tscOutputOnErrorCheckBox;
+    private JButton tscPathBrowseButton;
+    private JLabel tscPathHintLabel;
+    private JLabel tscPathLabel;
+    private JButton tscPathSearchButton;
+    private JTextField tscPathTextField;
     // End of variables declaration//GEN-END:variables
 
     //~ Inner classes
