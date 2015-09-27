@@ -13,24 +13,25 @@ import org.openide.util.NbBundle;
  * @author Petr Pisl
  */
 public class TypeScriptCustomizer implements ProjectCustomizer.CompositeCategoryProvider {
-@ProjectCustomizer.CompositeCategoryProvider.Registrations({
-    @ProjectCustomizer.CompositeCategoryProvider.Registration(
-        projectType = FrameworksUtils.HTML5_CLIENT_PROJECT,
-        category = FrameworksUtils.CATEGORY,
-        position = 270
-    ),
-    @ProjectCustomizer.CompositeCategoryProvider.Registration(
-        projectType = FrameworksUtils.PHP_PROJECT,
-        category = FrameworksUtils.CATEGORY,
-        position = 270
-    ),
-    @ProjectCustomizer.CompositeCategoryProvider.Registration(
-        projectType = FrameworksUtils.MAVEN_PROJECT,
-        category = FrameworksUtils.CATEGORY,
-        position = 270
-    )   
-})
-    
+
+    @ProjectCustomizer.CompositeCategoryProvider.Registrations({
+        @ProjectCustomizer.CompositeCategoryProvider.Registration(
+                projectType = FrameworksUtils.HTML5_CLIENT_PROJECT,
+                category = FrameworksUtils.CATEGORY,
+                position = 270
+        ),
+        @ProjectCustomizer.CompositeCategoryProvider.Registration(
+                projectType = FrameworksUtils.PHP_PROJECT,
+                category = FrameworksUtils.CATEGORY,
+                position = 270
+        ),
+        @ProjectCustomizer.CompositeCategoryProvider.Registration(
+                projectType = FrameworksUtils.MAVEN_PROJECT,
+                category = FrameworksUtils.CATEGORY,
+                position = 270
+        )
+    })
+
     public static TypeScriptCustomizer createCustomizer() {
         return new TypeScriptCustomizer();
     }
@@ -50,5 +51,5 @@ public class TypeScriptCustomizer implements ProjectCustomizer.CompositeCategory
         return new JPanel();
 //        return new RequireJsPanel(category, project);
     }
-    
+
 }

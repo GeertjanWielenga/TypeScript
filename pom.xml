@@ -18,6 +18,7 @@
                             <id>org.netbeans.modules:org-netbeans-modules-javascript2-editor</id>
                             <type>impl</type>
                             <explicitValue>org.netbeans.modules.javascript2.editor/1 = 201508041349</explicitValue>
+                            <!--explicitValue>org.netbeans.modules.javascript2.editor/1 = 201505281753</explicitValue-->
                         </dependency>
                     </moduleDependencies>
                 </configuration>
@@ -123,6 +124,21 @@
         <dependency>
             <groupId>org.netbeans.api</groupId>
             <artifactId>org-openide-dialogs</artifactId>
+            <version>RELEASE802</version>
+        </dependency>
+        <dependency>
+            <groupId>org.netbeans.api</groupId>
+            <artifactId>org-netbeans-modules-lexer</artifactId>
+            <version>RELEASE802</version>
+        </dependency>
+        <dependency>
+            <groupId>org.antlr</groupId>
+            <artifactId>antlrworks</artifactId>
+            <version>1.5.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.netbeans.api</groupId>
+            <artifactId>org-netbeans-modules-csl-api</artifactId>
             <version>RELEASE802</version>
         </dependency>
     </dependencies>
