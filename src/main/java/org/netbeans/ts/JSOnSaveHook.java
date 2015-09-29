@@ -30,8 +30,8 @@ public class JSOnSaveHook implements OnSaveTask {
     @Override
     public void performTask() {
         StatusDisplayer.getDefault().setStatusText("Transpile to TypeScript...",10);
-        String tsc = NbPreferences.forModule(TypeScriptOptionsPanel.class).get("tsc", "");
-        execute(tsc, getFileObject(document));
+        String tscPath = NbPreferences.forModule(TypeScriptOptionsPanel.class).get("tscPath", "");
+        execute(tscPath, getFileObject(document));
     }
 
     public FileObject getFileObject(Document doc) {
@@ -45,15 +45,16 @@ public class JSOnSaveHook implements OnSaveTask {
         return null;
     }
 
-    public Integer execute(final String path, FileObject fo) {
+    public Integer execute(final String tscPath, FileObject fo) {
         Integer get = null;
         ExecutionDescriptor descriptor = new ExecutionDescriptor().
                 showProgress(true).
                 frontWindow(true).
                 controllable(true);
         ExternalProcessBuilder processBuilder = new ExternalProcessBuilder(
-                //hardcoded for the moment:
-                "C:\\Users\\gwieleng\\AppData\\Roaming\\npm\\tsc.cmd")
+                tscPath)
+                //hardcoded:
+//                "C:\\Users\\gwieleng\\AppData\\Roaming\\npm\\tsc.cmd")
                 .addArgument("--sourcemap")
                 .addArgument(fo.getPath());
                 //based on the code below, keeping it for inspiration:
@@ -61,7 +62,7 @@ public class JSOnSaveHook implements OnSaveTask {
 //                .addArgument("-o").addArgument(fo.getParent().getPath() + "/" + fo.getName() + ".dart.js")
 //                .addArgument("--minify")
 //                .addArgument(fo.getPath());
-        ExecutionService service = ExecutionService.newService(processBuilder, descriptor, path);
+        ExecutionService service = ExecutionService.newService(processBuilder, descriptor, tscPath);
         Future<Integer> task = service.run();
         try {
             get = task.get();
