@@ -1,6 +1,6 @@
 <!DOCTYPE fontscolors PUBLIC "-//NetBeans//DTD Editor Fonts and Colors settings 1.1//EN" "http://www.netbeans.org/dtds/EditorFontsColors-1_1.dtd">
 <fontscolors>
-    <fontcolor name="comment" default="gray"/>
+    <fontcolor name="comment" default="lightgray"/>
     <fontcolor name="identifier" foreColor="blue"/>
     <fontcolor name="keyword" foreColor="FF669933"/>
     <fontcolor name="function" foreColor="green"/>
