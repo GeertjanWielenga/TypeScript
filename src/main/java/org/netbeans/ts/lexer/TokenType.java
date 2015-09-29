@@ -74,7 +74,7 @@ public enum TokenType {
     Switch(70, "keyword"),
     While(71, "keyword"),
     Debugger(72, "keyword"),
-    Function(73, "keyword"),
+    Function(73, "function"),
     This(74, "keyword"),
     With(75, "keyword"),
     Default(76, "keyword"),
@@ -98,11 +98,11 @@ public enum TokenType {
     Protected(95, "keyword"),
     Static(96, "keyword"),
     Yield(97, "keyword"),
-    Identifier(98, "keyword"),
-    StringLiteral(99, "keyword"),
+    Identifier(98, "identifier"),
+    StringLiteral(99, "string"),
     WhiteSpaces(100, "keyword"),
-    MultiLineComment(101, "keyword"),
-    SingleLineComment(102, "keyword"),
+    MultiLineComment(101, "comment"),
+    SingleLineComment(102, "comment"),
     UnexpectedCharacter(103, "keyword");
 
     public int id;
