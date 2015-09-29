@@ -1,7 +1,9 @@
 <!DOCTYPE fontscolors PUBLIC "-//NetBeans//DTD Editor Fonts and Colors settings 1.1//EN" "http://www.netbeans.org/dtds/EditorFontsColors-1_1.dtd">
 <fontscolors>
-    <fontcolor name="comment" default="comment"/>
-    <fontcolor name="keyword" default="keyword" foreColor="red"/>
-    <fontcolor name="whitespace" default="whitespace"/>
+    <fontcolor name="comment" default="gray"/>
+    <fontcolor name="keyword" foreColor="FF669933"/>
+    <fontcolor name="constructor" default="red"/>
+    <fontcolor name="var" default="blue"/>
+    <fontcolor name="class" default="yellow"/>
     <fontcolor name="character" default="character"/>
 </fontscolors>

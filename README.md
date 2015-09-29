@@ -57,7 +57,9 @@ the JS should be generated.
 
 #### (b) Sytax Coloring for TypeScript
 
-to be done
+<img src="images/typescript-coloring.png"/>
+
+A start has been made, as can be seen above.
 
 #### (c) Code Completion for TypeScript
 
