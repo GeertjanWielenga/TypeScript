@@ -59,7 +59,9 @@ the JS should be generated.
 
 <img src="images/typescript-coloring.png"/>
 
-A start has been made, as can be seen above.
+A start has been made, as can be seen above. ANTLR lexer has been created,
+integrated, and a start has been made to setting syntax colorings, which
+can already be modified in the Options window.
 
 #### (c) Code Completion for TypeScript
 
