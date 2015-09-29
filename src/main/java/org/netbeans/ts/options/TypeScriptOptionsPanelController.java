@@ -21,16 +21,18 @@ public final class TypeScriptOptionsPanelController extends OptionsPanelControll
     private final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
     private boolean changed;
 
+    @Override
     public void update() {
-//        getPanel().load();
+        getPanel().load();
         changed = false;
     }
 
+    @Override
     public void applyChanges() {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-//                getPanel().store();
+                getPanel().store();
                 changed = false;
             }
         });
