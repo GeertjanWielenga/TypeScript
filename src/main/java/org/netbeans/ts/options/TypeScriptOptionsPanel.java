@@ -33,6 +33,7 @@ import org.openide.awt.StatusDisplayer;
 import org.openide.filesystems.FileChooserBuilder;
 import org.openide.util.ChangeSupport;
 import org.openide.util.NbBundle;
+import org.openide.util.NbPreferences;
 
 public final class TypeScriptOptionsPanel extends JPanel {
 
@@ -68,7 +69,7 @@ public final class TypeScriptOptionsPanel extends JPanel {
         // Example:        
         // someCheckBox.setSelected(Preferences.userNodeForPackage(BlaPanel.class).getBoolean("someFlag", false));
         // or for org.openide.util with API spec. version >= 7.4:
-        // someCheckBox.setSelected(NbPreferences.forModule(BlaPanel.class).getBoolean("someFlag", false));
+         tscPathTextField.setText(NbPreferences.forModule(TypeScriptOptionsPanel.class).get("tscPath", "<not defined yet>"));
         // or:
         // someTextField.setText(SomeSystemOption.getDefault().getSomeStringProperty());
     }
@@ -78,7 +79,7 @@ public final class TypeScriptOptionsPanel extends JPanel {
         // Example:
         // Preferences.userNodeForPackage(BlaPanel.class).putBoolean("someFlag", someCheckBox.isSelected());
         // or for org.openide.util with API spec. version >= 7.4:
-        // NbPreferences.forModule(BlaPanel.class).putBoolean("someFlag", someCheckBox.isSelected());
+        NbPreferences.forModule(TypeScriptOptionsPanel.class).put("tscPath", tscPathTextField.getText());
         // or:
         // SomeSystemOption.getDefault().setSomeStringProperty(someTextField.getText());
     }
