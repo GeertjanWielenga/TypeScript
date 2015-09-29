@@ -61,7 +61,8 @@ the JS should be generated.
 
 A start has been made, as can be seen above. ANTLR lexer has been created,
 integrated, and a start has been made to setting syntax colorings, which
-can already be modified in the Options window.
+can already be modified in the Options window. HTML editor will be embedded
+in relevant places, e.g., between quotation marks.
 
 #### (c) Code Completion for TypeScript
 
