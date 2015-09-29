@@ -1,1 +1,4 @@
 /target/
+/antlr/Antlr/nbproject/private/
+/antlr/Antlr/dist/
+/antlr/Antlr/build/
