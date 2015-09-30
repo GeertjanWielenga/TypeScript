@@ -65,8 +65,9 @@ can already be modified in the Options window. HTML editor will be embedded
 in relevant places, e.g., between quotation marks.
 
 The above is the start of a new editor for ECMAScript, making use of this ANTLR
-definition: <a href="https://raw.githubusercontent.com/antlr/grammars-v4/master/ecmascript/ECMAScript.g4">https://raw.githubusercontent.com/antlr/grammars-v4/master/ecmascript/ECMAScript.g4</a>. Since
-TypeScript is a subset of ECMAScript, an ECMAScript editor should be
+definition: <a href="https://raw.githubusercontent.com/antlr/grammars-v4/master/ecmascript/ECMAScript.g4">https://raw.githubusercontent.com/antlr/grammars-v4/master/ecmascript/ECMAScript.g4</a>. 
+Because of the relationship between TypeScript and ECMAScript,
+an ECMAScript editor should be
 able to work equally well for TypeScript.
 
 #### (c) Code Completion for TypeScript
