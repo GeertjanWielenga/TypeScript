@@ -28,12 +28,12 @@ public class TsCompletionProvider implements CompletionProvider {
 
     @Override
     public List<CompletionProposal> complete(CodeCompletionContext ccc, CompletionContext cc, String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return null; //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public String getHelpDocumentation(ParserResult pr, ElementHandle eh) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return null; //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
